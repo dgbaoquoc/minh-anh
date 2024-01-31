@@ -18,7 +18,7 @@ export default async function HomePage() {
         </div>
         <div className="grid gap-6 py-12 lg:grid-cols-2 lg:gap-12">
           <Link href="/hon-anh">
-            <Card className="flex flex-col items-center justify-center space-y-4 text-center hover:scale-110 transition-transform duration-300">
+            <Card className="flex flex-col items-center justify-center space-y-4 text-center hover:scale-110 transition-transform duration-300 ">
               <CardHeader>
                 <CardTitle>
                   Hôn Anh <span className="text-4xl">💋</span>{" "}
