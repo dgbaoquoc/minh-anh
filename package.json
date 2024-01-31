@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gen-type": "npx supabase gen types typescript --project-id 'jvvhnlewinkbherbhnmo' --schema public > types/database/supabase.ts"
   },
   "dependencies": {
     "@radix-ui/react-separator": "^1.0.3",

@@ -29,22 +29,22 @@ export default async function HonAnhPage() {
             Hôn anh 💋{" "}
           </PageHeaderHeading>
           <PageHeaderDescription size="sm" className="text-white">
-            Nay Minh Anh muốn hôn anh 💏
+            Nay <MinhAnhTypo /> muốn hôn anh 💏
           </PageHeaderDescription>
         </PageHeader>
         <div className="p-6 flex flex-col items-center justify-center ">
           <Image
             priority
-            alt="Minh Anh hôn anh"
+            alt="Kiss image"
             className="text-balance rounded-full hover:scale-110 transition-transform duration-300"
             width={200}
             height={200}
             src="/minh-anh-hon-anh.webp"
           />
           <h1 className="text-justify text-2xl md:text-4xl font-bold text-white mt-4">
-            <MinhAnhTypo className="text-white" /> đang cảm thấy{" "}
+            <MinhAnhTypo /> đang cảm thấy{" "}
             <span className="text-primary">yêu 💝 </span> anh, <br /> anh sẽ
-            được Minh Anh hôn
+            được <MinhAnhTypo /> hôn
           </h1>
           <KissSection initialCounter={kissOnly.kisses} />
         </div>

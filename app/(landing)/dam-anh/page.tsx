@@ -25,9 +25,9 @@ export default async function DamAnhPage() {
     <div className="bg-gradient-to-r from-slate-300 to-slate-500 min-h-screen">
       <Shell>
         <PageHeader>
-          <PageHeaderHeading size="sm">Đấm Anh 👊</PageHeaderHeading>
+          <PageHeaderHeading size="sm">Đấm anh 👊</PageHeaderHeading>
           <PageHeaderDescription size="sm">
-            Nay Minh Anh muốn đấm anh à?
+            Nay <MinhAnhTypo /> muốn đấm anh à?
           </PageHeaderDescription>
         </PageHeader>
         <div className="p-6 flex flex-col items-center justify-center">
@@ -40,9 +40,8 @@ export default async function DamAnhPage() {
             src="/minh-anh.webp"
           />
           <h1 className="text-justify text-2xl md:text-4xl font-bold text-white mt-4">
-            <MinhAnhTypo className="text-white" /> đang{" "}
-            <span className="text-primary">dỗi 💢 </span> anh, anh sẽ bị Minh
-            Anh đấm
+            <MinhAnhTypo /> đang <span className="text-primary">dỗi 💢 </span>{" "}
+            anh, anh sẽ bị <MinhAnhTypo /> đấm
           </h1>
           <PunchingSection initialCounter={punchOnly.punches} />
         </div>
