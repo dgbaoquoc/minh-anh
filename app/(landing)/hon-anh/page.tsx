@@ -8,6 +8,7 @@ import {
 import { Shell } from "@/components/shells/shell";
 import { supabase } from "@/lib/supabase";
 import { type Metadata } from "next";
+import { unstable_noStore } from "next/cache";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default async function HonAnhPage() {
+  unstable_noStore();
   let { data: kisses } = await supabase.from("punch").select("*").eq("id", 1);
 
   const kissOnly = kisses![0];

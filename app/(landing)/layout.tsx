@@ -1,3 +1,5 @@
+import SiteFooter from "@/components/layout/site-footer";
+
 interface LandingLayoutProps
   extends React.PropsWithChildren<{
     modal: React.ReactNode;
@@ -13,6 +15,7 @@ export default async function LandingLayout({
         {children}
         {modal}
       </main>
+      <SiteFooter />
     </div>
   );
 }
