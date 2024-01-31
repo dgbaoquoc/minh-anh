@@ -25,8 +25,10 @@ export default async function HonAnhPage() {
     <div className="bg-gradient-to-r from-pink-300 to-pink-500 min-h-screen">
       <Shell>
         <PageHeader>
-          <PageHeaderHeading size="sm">Hôn anh 💋 </PageHeaderHeading>
-          <PageHeaderDescription size="sm">
+          <PageHeaderHeading size="sm" className="text-white">
+            Hôn anh 💋{" "}
+          </PageHeaderHeading>
+          <PageHeaderDescription size="sm" className="text-white">
             Nay Minh Anh muốn hôn anh 💏
           </PageHeaderDescription>
         </PageHeader>
@@ -34,7 +36,7 @@ export default async function HonAnhPage() {
           <Image
             priority
             alt="Minh Anh hôn anh"
-            className="text-balance rounded-full"
+            className="text-balance rounded-full hover:scale-110 transition-transform duration-300"
             width={200}
             height={200}
             src="/minh-anh-hon-anh.webp"

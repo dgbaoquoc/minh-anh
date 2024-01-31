@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
+import PunchCard from "./_components/punch-card";
 
 export default async function HomePage() {
   return (
@@ -36,25 +36,7 @@ export default async function HomePage() {
               </CardContent>
             </Card>
           </Link>
-          <Link href="/dam-anh">
-            <Card className="flex flex-col items-center justify-center space-y-4 text-center hover:scale-110 transition-transform duration-300">
-              <CardHeader>
-                <CardTitle>
-                  Đấm Anh <span className="text-4xl">👊</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-4xl">
-                <Image
-                  priority
-                  alt="Minh Anh hôn anh"
-                  className="text-balance rounded-full"
-                  width={200}
-                  height={200}
-                  src="/minh-anh.webp"
-                />
-              </CardContent>
-            </Card>
-          </Link>
+          <PunchCard />
         </div>
       </div>
     </main>
