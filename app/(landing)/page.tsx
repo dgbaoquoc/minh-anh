@@ -1,8 +1,18 @@
+import MinhAnhTypo from "@/components/minh-anh";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import PunchCard from "./_components/punch-card";
-import MinhAnhTypo from "@/components/minh-anh";
 
 export default async function HomePage() {
   return (
@@ -37,7 +47,41 @@ export default async function HomePage() {
               </CardContent>
             </Card>
           </Link>
-          <PunchCard />
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Card className="hover:cursor-pointer flex flex-col items-center justify-center space-y-4 text-center hover:scale-110 transition-transform duration-300">
+                <CardHeader>
+                  <CardTitle>
+                    Đấm Anh <span className="text-4xl">👊</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-4xl">
+                  <Image
+                    priority
+                    alt="Minh Anh hôn anh"
+                    className="text-balance rounded-full"
+                    width={200}
+                    height={200}
+                    src="/minh-anh.webp"
+                  />
+                </CardContent>
+              </Card>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>STOP!!! ✋✋✋</AlertDialogTitle>
+                <AlertDialogDescription>
+                  Chắc nay tâm trạng em không tốt. Em chắc chắn muốn đấm anh à?
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Em bấm nhầm</AlertDialogCancel>
+                <Link href="/dam-anh">
+                  <AlertDialogAction>Vâng em rất muốn 😠 </AlertDialogAction>
+                </Link>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
       </div>
     </main>
