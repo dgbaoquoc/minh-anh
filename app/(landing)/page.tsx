@@ -76,9 +76,9 @@ export default async function HomePage() {
               </AlertDialogHeader>
               <AlertDialogFooter>
                 <AlertDialogCancel>Em bấm nhầm</AlertDialogCancel>
-                <Link href="/dam-anh">
-                  <AlertDialogAction>Vâng em rất muốn 😠 </AlertDialogAction>
-                </Link>
+                <AlertDialogAction asChild>
+                  <Link href="/dam-anh">Vâng em rất muốn 😠</Link>
+                </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
