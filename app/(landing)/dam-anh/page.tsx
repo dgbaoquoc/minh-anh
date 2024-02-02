@@ -6,6 +6,8 @@ import {
 } from "@/components/page-header";
 import PunchingSection from "@/components/punch-section";
 import { Shell } from "@/components/shells/shell";
+import { userId } from "@/config/site";
+import { getPunchesCount } from "@/lib/fetcher/user";
 import { supabase } from "@/lib/supabase";
 import { type Metadata } from "next";
 import { unstable_noStore } from "next/cache";
@@ -17,9 +19,8 @@ export const metadata: Metadata = {
 };
 export default async function DamAnhPage() {
   unstable_noStore();
-  let { data: punches } = await supabase.from("punch").select("*").eq("id", 1);
-
-  const punchOnly = punches![0];
+  const punchPromise = await getPunchesCount({ userId });
+  const punch = punchPromise?.data?.punches ?? 0;
 
   return (
     <div className="bg-gradient-to-r from-slate-300 to-slate-500 min-h-screen">
@@ -43,7 +44,7 @@ export default async function DamAnhPage() {
             <MinhAnhTypo /> đang <span className="text-primary">dỗi 💢 </span>{" "}
             anh, anh sẽ bị <MinhAnhTypo /> đấm
           </h1>
-          <PunchingSection initialCounter={punchOnly.punches} />
+          <PunchingSection initialCounter={punch} />
         </div>
       </Shell>
     </div>

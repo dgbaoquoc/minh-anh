@@ -82,6 +82,7 @@ export interface Database {
           email: string | null
           id: string
           images: Json | null
+          message: string | null
           name: string
           notes: string | null
           updated_at: string | null
@@ -93,6 +94,7 @@ export interface Database {
           email?: string | null
           id?: string
           images?: Json | null
+          message?: string | null
           name: string
           notes?: string | null
           updated_at?: string | null
@@ -104,6 +106,7 @@ export interface Database {
           email?: string | null
           id?: string
           images?: Json | null
+          message?: string | null
           name?: string
           notes?: string | null
           updated_at?: string | null

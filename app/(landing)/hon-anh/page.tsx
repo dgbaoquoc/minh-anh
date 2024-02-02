@@ -6,6 +6,8 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header";
 import { Shell } from "@/components/shells/shell";
+import { userId } from "@/config/site";
+import { getKissesCount } from "@/lib/fetcher/user";
 import { supabase } from "@/lib/supabase";
 import { type Metadata } from "next";
 import { unstable_noStore } from "next/cache";
@@ -17,10 +19,9 @@ export const metadata: Metadata = {
 };
 
 export default async function HonAnhPage() {
-  unstable_noStore();
-  let { data: kisses } = await supabase.from("punch").select("*").eq("id", 1);
+  const kissPromise = await getKissesCount({ userId });
+  const kiss = kissPromise?.data?.kisses ?? 0;
 
-  const kissOnly = kisses![0];
   return (
     <div className="bg-gradient-to-r from-pink-300 to-pink-500 min-h-screen">
       <Shell>
@@ -46,7 +47,7 @@ export default async function HonAnhPage() {
             <span className="text-primary">yêu 💝 </span> anh, <br /> anh sẽ
             được <MinhAnhTypo /> hôn
           </h1>
-          <KissSection initialCounter={kissOnly.kisses} />
+          <KissSection initialCounter={kiss} />
         </div>
       </Shell>
     </div>

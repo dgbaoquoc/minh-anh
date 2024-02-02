@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { increaseKiss } from "@/lib/action/kiss";
+import { userId } from "@/config/site";
+import { increaseKissCount } from "@/lib/action/mood";
 import React from "react";
 import MinhAnhTypo from "./minh-anh";
 import { useToast } from "./ui/use-toast";
@@ -11,7 +12,6 @@ export default function KissSection({
   initialCounter: number;
 }) {
   const [isPending, startTransition] = React.useTransition();
-  const [counter, setCounter] = React.useState<number>(initialCounter);
   const { toast } = useToast();
 
   return (
@@ -19,13 +19,19 @@ export default function KissSection({
       <div className="mt-6 space-x-4 space-y-4">
         <Button
           variant="default"
-          onClick={async () => {
-            setCounter(counter + 1);
-            toast({
-              title: "💟 Yêu em 💟 ",
-              description: "Many months baby 🏩 ",
+          disabled={isPending}
+          onClick={() => {
+            startTransition(async () => {
+              await increaseKissCount({
+                userId,
+                count: initialCounter + 1,
+              });
+
+              toast({
+                title: "💟 Yêu em 💟 ",
+                description: "Many months baby 🏩 ",
+              });
             });
-            await increaseKiss();
           }}
         >
           Click để thơm anh 👊
@@ -36,7 +42,7 @@ export default function KissSection({
         <h2 className="text-2xl font-bold text-pink-900">Điểm số:</h2>
         <p className="text-lg text-pink-700 mt-2">
           Anh đã được <MinhAnhTypo /> 💋{" "}
-          <span className="font-bold">{counter}</span> lần.
+          <span className="font-bold">{initialCounter}</span> lần.
         </p>
       </div>
     </section>
