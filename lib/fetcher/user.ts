@@ -31,6 +31,7 @@ export async function getUser(userId: string) {
 }
 
 export async function getUserMood(input: z.infer<typeof getUserMoodSchema>) {
+  noStore();
   try {
     return await supabase
       .from("mood_tracking")

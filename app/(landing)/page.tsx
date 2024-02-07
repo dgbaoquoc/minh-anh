@@ -1,5 +1,3 @@
-import MinhAnhTypo from "@/components/minh-anh";
-import Title from "@/components/title";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,6 +15,8 @@ import { getUser, getUserMood } from "@/lib/fetcher/user";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import MoodTracking from "./_components/mood-tracking";
+import Title from "@/components/title";
 
 export default async function IndexPage() {
   const user = await getUser(userId);
@@ -33,6 +33,8 @@ export default async function IndexPage() {
           <h1 className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
             {user?.data?.message}
           </h1>
+
+          {/* <MoodTracking /> */}
           <p className="t mx-auto max-w-[700px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
             Nay <Title title={user.data?.name as string} /> của anh muốn làm gì?{" "}
             <br />
