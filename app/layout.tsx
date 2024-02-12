@@ -1,9 +1,10 @@
-import { cn } from "@/lib/utils";
-import "./globals.css";
-import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+import PlausibleProvider from "next-plausible";
+import { Inter as FontSans } from "next/font/google";
+import "./globals.css";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -42,7 +43,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <head />
+      <head>
+        <PlausibleProvider domain="thomas.vucar.vn" />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",

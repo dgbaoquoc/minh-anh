@@ -13,6 +13,9 @@ export default function SiteHeader() {
             <Link href="/con-bao-nhieu-ngay-nua-gap-nhau" className="text-2xl">
               ⌛<span className="sr-only">Đếm ngược</span>
             </Link>
+            <Link href="/valentine" className="text-2xl">
+              💝 <span className="sr-only">Valentine</span>
+            </Link>
           </nav>
         </div>
       </div>
