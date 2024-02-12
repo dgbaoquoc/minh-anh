@@ -8,6 +8,7 @@ import {
 import { Shell } from "@/components/shells/shell";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { usePlausible } from "next-plausible";
 import Image from "next/image";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
@@ -47,14 +48,19 @@ const foods = [
 const FoodCard = ({
   title,
   image,
+  className,
   func,
 }: {
   title: string;
   image: string;
+  className: string | null;
   func: (food: string) => void;
 }) => {
   return (
-    <Card className="hover:cursor-pointer" onClick={() => func(title)}>
+    <Card
+      className={cn("hover:cursor-pointer", className)}
+      onClick={() => func(title)}
+    >
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
@@ -121,6 +127,11 @@ export default function FoodPage() {
                 key={i}
                 title={item.title}
                 image={item.image}
+                className={
+                  item.title === food
+                    ? "bg-primary/50 border-primary scale-105"
+                    : null
+                }
                 func={handleFoodClick}
               />
             ))}
