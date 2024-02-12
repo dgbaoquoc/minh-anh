@@ -90,8 +90,10 @@ const SubmitButton = ({ food }: { food: string | null }) => {
       onClick={() => {
         plausible("valentine", {
           props: {
-            day: dayProps,
-            food,
+            data: JSON.stringify({
+              day: dayProps,
+              food,
+            }),
           },
         });
         router.push(`/valentine/thank-you?day=${dayProps}&food=${food}`);
@@ -121,7 +123,7 @@ export default function FoodPage() {
           </PageHeaderDescription>
         </PageHeader>
         <div className="p-6 flex space-y-4 flex-col items-center justify-center">
-          <div className="flex flex-wrap gap-4">
+          <div className="flex justify-center flex-wrap gap-4">
             {foods.map((item, i) => (
               <FoodCard
                 key={i}
