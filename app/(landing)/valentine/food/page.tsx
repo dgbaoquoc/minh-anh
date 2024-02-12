@@ -71,13 +71,33 @@ const FoodCard = ({
   );
 };
 
-export default function FoodPage() {
+const SubmitButton = ({ food }: { food: string | null }) => {
   const plausible = usePlausible();
-  const router = useRouter();
   const searchParams = useSearchParams();
-  const [food, setFood] = React.useState<string | null>(null);
+  const router = useRouter();
 
   const dayProps = searchParams.get("day");
+
+  return (
+    <Button
+      disabled={!food}
+      onClick={() => {
+        plausible("valentine", {
+          props: {
+            day: dayProps,
+            food,
+          },
+        });
+        router.push(`/valentine/thank-you?day=${dayProps}&food=${food}`);
+      }}
+    >
+      Tiếp tục
+    </Button>
+  );
+};
+
+export default function FoodPage() {
+  const [food, setFood] = React.useState<string | null>(null);
 
   function handleFoodClick(food: string) {
     setFood(food);
@@ -105,20 +125,9 @@ export default function FoodPage() {
               />
             ))}
           </div>
-          <Button
-            disabled={!food}
-            onClick={() => {
-              plausible("valentine", {
-                props: {
-                  day: dayProps,
-                  food,
-                },
-              });
-              router.push(`/valentine/thank-you?day=${dayProps}&food=${food}`);
-            }}
-          >
-            Tiếp tục
-          </Button>
+          <React.Suspense>
+            <SubmitButton food={food} />
+          </React.Suspense>
         </div>
       </Shell>
     </div>
